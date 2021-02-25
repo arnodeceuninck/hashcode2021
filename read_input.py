@@ -23,7 +23,7 @@ def read_file(filename):
             street.end = int(line[1])
             street.name = line[2]
             street.length = int(line[3])
-            system.streets.append(street)
+            system.streetsdict[line[2]] = street
             system.getIntersectionFromId(int(line[0])).outgoing.append(street)
             system.getIntersectionFromId(int(line[1])).incoming.append(street)
 
@@ -31,7 +31,7 @@ def read_file(filename):
             line = infile.readline().strip().split(' ')
             car = Car()
             for j in range(int(line[0])):
-                car.streets.append(system.findStreetWithName(line[j + 1]))
+                car.streets.append(system.streetsdict[line[j + 1]])
             system.cars.append(car)
 
     return system
