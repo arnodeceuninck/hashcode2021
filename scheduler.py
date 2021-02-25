@@ -8,6 +8,15 @@ def scheduler(system):
             intersection.schedule[incoming_street.name] = 1
     return system
 
+def schedule_e(system):
+    for intersection in system.getIntersections():
+        for incoming_street in intersection.incoming:
+            if incoming_street.name.find('ejj'):
+                pass
+            else:
+                intersection.schedule[incoming_street.name] = 1
+    return system
+
 
 def scheduler_basil(system):
     update_counter(system.cars)
