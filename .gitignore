@@ -248,3 +248,6 @@ dmypy.json
 .prof
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm,python
+
+# Ignore zip files
+*.zip
