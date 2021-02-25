@@ -25,7 +25,7 @@ def read_file(filename):
             street.length = int(line[3])
             system.streetsdict[line[2]] = street
             system.intersectionsdict[int(line[0])].outgoing.append(street)
-            system.intersectionsdict[int(line[1])].incoming.append(street)
+            system.intersectionsdict[int(line[1])].incoming[street] = 1
 
         for i in range(carcount):
             line = infile.readline().strip().split(' ')

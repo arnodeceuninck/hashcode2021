@@ -1,3 +1,6 @@
+from simulation import *
+
+
 def scheduler(system):
     for intersection in system.getIntersections():
         for incoming_street in intersection.incoming:
@@ -13,6 +16,16 @@ def filter_streets(system):
     set(visited_streets)
     return visited_streets
 
+def scheduler_basil(system):
+    update_counter(system.cars)
+    for intersection in system.getIntersections():
+        for incoming_street in intersection.incoming:
+            # schedule incoming street in round robin
+            if incoming_street.count == 0:
+                continue
+            else:
+                intersection.schedule[incoming_street.name] = incoming_street.count
+    return system
 
 def scheduler_without_redundant_streets(system):
     visited_streets = filter_streets(system)

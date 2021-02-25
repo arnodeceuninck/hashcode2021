@@ -23,7 +23,7 @@ class System:
 
 
 class Intersection:
-    incoming: list = []  # list of streets
+    incoming: list = []  # dict of streets
     outgoing: list = []
     id: int = 0
     schedule: OrderedDict = OrderedDict()  # Keys zijn straatnamen, values green light durations
@@ -34,7 +34,7 @@ class Intersection:
 
     def __init__(self, id):
         self.id = id
-        self.incoming = []
+        self.incoming = {}
         self.outgoing = []
         self.schedule = OrderedDict()
 
@@ -45,6 +45,7 @@ class Intersection:
 class Street:
     length: int = 0
     name: str = ""
+    count: int = 0
     begin: Intersection = 0
     end: Intersection = 0
     # simulation variables
