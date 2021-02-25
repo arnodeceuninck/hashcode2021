@@ -12,13 +12,11 @@ class System:
         return f"Streets: {self.streetsdict}\n Cars: {self.cars}\n Intersections: {self.intersectionsdict}\n " \
                f"Duration: {self.duration}\n Points: {self.points}"
 
+    def getIntersections(self):
+        return self.intersectionsdict.values()
 
-    # def findStreetWithName(self, name):
-    #     # StopIteration Exception means no street found
-    #     return next(filter(lambda street: street.name == name, self.streets))
-
-    # def getIntersectionFromId(self, id):
-    #     return next(filter(lambda intersection: intersection.id == id, self.intersections))
+    def getStreets(self):
+        return self.streetsdict.values()
 
 
 class Intersection:

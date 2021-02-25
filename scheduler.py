@@ -1,5 +1,5 @@
 def scheduler(system):
-    for intersection in system.intersectionsdict.values():
+    for intersection in system.getIntersections():
         for incoming_street in intersection.incoming:
             # schedule incoming street in round robin
             intersection.schedule[incoming_street.name] = 1
