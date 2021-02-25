@@ -1,5 +1,3 @@
-from models import System, Intersection
-
 def scheduler(system):
     for intersection in system.intersections:
         for incoming_street in intersection.incoming:
