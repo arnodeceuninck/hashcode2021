@@ -7,13 +7,19 @@ class System:
     intersections: list = []
     duration: int = 0
     points: int = 0
-    
+
+    def __repr__(self):
+        return f"Streets: {self.streets}\n Cars: {self.cars}\n Intersections: {self.intersections}\n " \
+               f"Duration: {self.duration}\n Points: {self.points}"
+
 
     def findStreetWithName(self, name):
-        for street in self.streets:
-            if street.name == name:
-                return street
-        raise Exception("Invalid street name")
+        # StopIteration Exception means no street found
+        return next(filter(lambda street: street.name == name, self.streets))
+
+    def getIntersectionFromId(self, id):
+        return next(filter(lambda intersection: intersection.id == id, self.intersections))
+
 
 class Intersection:
     incoming: list = []  # list of streets
@@ -27,6 +33,12 @@ class Intersection:
 
     def __init__(self, id):
         self.id = id
+        self.incoming = []
+        self.outgoing = []
+        self.schedule = OrderedDict()
+
+    def __repr__(self):
+        return f"Id: {self.id}"
 
 
 class Street:
@@ -34,10 +46,12 @@ class Street:
     name: str = ""
     begin: Intersection = 0
     end: Intersection = 0
-
     # simulation variables
     light: int = 0  # 0 if light is red, else time light has been green
     visited_street: bool = False
+
+    def __repr__(self):
+        return f"Length: {self.length} Name: {self.name}\n"
 
 
 class Car:
@@ -51,3 +65,9 @@ class Car:
     # simulation variables
     current_street: Street = 0
     street_position: int = 0
+
+    def __init__(self):
+        self.streets = []
+        self.current_street: Street = 0
+        self.street_position: int = 0
+
