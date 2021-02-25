@@ -8,6 +8,7 @@ if __name__ == '__main__':
         print('Starting: ', letter)
         filename = f"{letter}.txt"
         system = read_file(f"input/{filename}")
+        system = scheduler(system)
         run_simulation(system)
         system = scheduler_without_redundant_streets(system)
         generate_output(system, f"output/generated_{filename}")
