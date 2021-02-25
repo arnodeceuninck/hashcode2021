@@ -16,10 +16,6 @@ class Intersection:
     incoming: list = []  # list of streets
     outgoing: list = []
     id: int = 0
-
-
-class Schedule:
-    intersection_id: list = []
     schedule: OrderedDict = OrderedDict()  # Keys zijn straatnamen, values green light durations
 
 
