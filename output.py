@@ -6,11 +6,14 @@ def generate_output(system: System, filenmae):
     file = open(filenmae, "w")
     append(file, get_scheduled_intersections_count(system))
     for intersection in system.intersectionsdict.values():
-        append_intersection(file, intersection)
+        if intersection.schedule:
+            append_intersection(file, intersection)
     file.close()
+
 
 def get_scheduled_intersections_count(system):
     return sum(bool(intersection.schedule) for intersection in system.getIntersections())
+
 
 def append(file, text):
     return file.write(f"{text}\n")
