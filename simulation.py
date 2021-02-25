@@ -1,7 +1,7 @@
 def run_simulation(system):
     while system.duration > 0:
         # progress lights based on schedule
-        for intersection in system.intersections:
+        for intersection in system.getIntersections():
             next_light_green = False  # if this is True, the next light needs to be put on green
             for street_name, light_duration in intersection.schedule.items():
                 current_street = system.findStreetWithName(street_name)
