@@ -21,10 +21,12 @@ class Intersection:
     id: int = 0
     schedule: OrderedDict = OrderedDict()  # Keys zijn straatnamen, values green light durations
 
+    # simulation variables
+    all_red: bool = True  # check if all lights are red, initialization phase
+    current_green = 0  # street which has current green light
+
     def __init__(self, id):
         self.id = id
-
-
 
 
 class Street:
@@ -40,6 +42,11 @@ class Street:
 
 class Car:
     streets: list = []
+
+    def getNextStreet(self, street):
+        for i in range(len(self.streets)):
+            if self.streets[i] == street:
+                return self.streets[i+1]
 
     # simulation variables
     current_street: Street = 0
