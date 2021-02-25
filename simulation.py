@@ -3,7 +3,7 @@ def run_simulation(system):
         # progress lights based on schedule
         for intersection in system.intersections:
             next_light_green = False  # if this is True, the next light needs to be put on green
-            for street_name, light_duration in intersection.schedule:
+            for street_name, light_duration in intersection.schedule.items():
                 current_street = system.findStreetWithName(street_name)
                 # if all lights are red, we are in init phase
                 if intersection.all_red:
