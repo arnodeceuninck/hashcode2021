@@ -51,3 +51,7 @@ def run_simulation(system):
 
         system.duration -= 1
 
+def update_counter(cars):
+    for car in cars:
+        for street in car.streets:
+            street.count += 1
