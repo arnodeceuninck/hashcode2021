@@ -4,12 +4,12 @@ from collections import OrderedDict
 class System:
     streetsdict: dict = dict()  # Lijst van streets
     cars: list = list()  # Lijst van cars
-    intersections: list = []
+    intersectionsdict: dict = dict()
     duration: int = 0
     points: int = 0
 
     def __repr__(self):
-        return f"Streets: {self.streetsdict}\n Cars: {self.cars}\n Intersections: {self.intersections}\n " \
+        return f"Streets: {self.streetsdict}\n Cars: {self.cars}\n Intersections: {self.intersectionsdict}\n " \
                f"Duration: {self.duration}\n Points: {self.points}"
 
 
@@ -17,8 +17,8 @@ class System:
     #     # StopIteration Exception means no street found
     #     return next(filter(lambda street: street.name == name, self.streets))
 
-    def getIntersectionFromId(self, id):
-        return next(filter(lambda intersection: intersection.id == id, self.intersections))
+    # def getIntersectionFromId(self, id):
+    #     return next(filter(lambda intersection: intersection.id == id, self.intersections))
 
 
 class Intersection:
