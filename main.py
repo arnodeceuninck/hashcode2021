@@ -4,7 +4,7 @@ from output import generate_output
 from simulation import run_simulation
 
 if __name__ == '__main__':
-    for letter in "b":
+    for letter in "cd":
         print('Starting: ', letter)
         filename = f"{letter}.txt"
         system = read_file(f"input/{filename}")
