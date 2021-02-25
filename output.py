@@ -4,11 +4,13 @@ from models import System, Intersection
 def generate_output(system: System, filenmae):
     # TODO: assuming you specify a schedule for all intersections
     file = open(filenmae, "w")
-    append(file, len(system.intersectionsdict))
+    append(file, get_scheduled_intersections_count(system))
     for intersection in system.intersectionsdict.values():
         append_intersection(file, intersection)
     file.close()
 
+def get_scheduled_intersections_count(system):
+    return sum(bool(intersection.schedule) for intersection in system.getIntersections())
 
 def append(file, text):
     return file.write(f"{text}\n")
