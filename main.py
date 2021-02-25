@@ -8,11 +8,8 @@ if __name__ == '__main__':
         print('Starting: ', letter)
         filename = f"{letter}.txt"
         system = read_file(f"input/{filename}")
-        system = scheduler_basil(system)
-        print('Running Simulation')
-        # run_simulation(system)
         print('Scheduling')
-        system = scheduler_without_redundant_streets(system)
+        system = scheduler_basil(system)
         print('Writing Output')
         generate_output(system, f"output/generated_{filename}")
         print('Finishing: ', letter)
