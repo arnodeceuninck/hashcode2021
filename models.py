@@ -6,13 +6,25 @@ class System:
     cars: list = list()  # Lijst van cars
     intersections: list = []
     duration: int = 0
+    points: int = 0
+    
 
+    def findStreetWithName(self, name):
+        for street in self.streets:
+            if street.name == name:
+                return street
+        raise Exception("Invalid street name")
 
 class Intersection:
     incoming: list = []  # list of streets
     outgoing: list = []
     id: int = 0
     schedule: OrderedDict = OrderedDict()  # Keys zijn straatnamen, values green light durations
+
+    def __init__(self, id):
+        self.id = id
+
+
 
 
 class Street:
