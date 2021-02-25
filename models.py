@@ -7,13 +7,11 @@ class System:
     intersections: list = []
     duration: int = 0
     points: int = 0
-    
 
     def findStreetWithName(self, name):
-        for street in self.streets:
-            if street.name == name:
-                return street
-        raise Exception("Invalid street name")
+        # StopIteration Exception means no street found
+        return next(filter(lambda street: street.name == name, self.streets))
+
 
 class Intersection:
     incoming: list = []  # list of streets
@@ -23,8 +21,6 @@ class Intersection:
 
     def __init__(self, id):
         self.id = id
-
-
 
 
 class Street:
