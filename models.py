@@ -19,7 +19,7 @@ class System:
 
     def getIntersectionFromId(self, id):
         return next(filter(lambda intersection: intersection.id == id, self.intersections))
-    
+
 
 class Intersection:
     incoming: list = []  # list of streets
@@ -29,6 +29,9 @@ class Intersection:
 
     def __init__(self, id):
         self.id = id
+        self.incoming = []
+        self.outgoing = []
+        self.schedule = OrderedDict()
 
     def __repr__(self):
         return f"Id: {self.id}"
@@ -53,3 +56,9 @@ class Car:
     # simulation variables
     current_street: Street = 0
     street_position: int = 0
+
+    def __init__(self):
+        self.streets = []
+        self.current_street: Street = 0
+        self.street_position: int = 0
+
