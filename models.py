@@ -21,8 +21,14 @@ class Street:
     begin: Intersection = 0
     end: Intersection = 0
 
+    # simulation variables
+    light: int = 0  # 0 if light is red, else time light has been green
+    visited_street: bool = False
+
 
 class Car:
     streets: list = []
+
+    # simulation variables
     current_street: Street = 0
     street_position: int = 0
