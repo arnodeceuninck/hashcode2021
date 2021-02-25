@@ -18,6 +18,9 @@ class System:
     def getStreets(self):
         return self.streetsdict.values()
 
+    def findStreetWithName(self, name):
+        return self.streetsdict[name]
+
 
 class Intersection:
     incoming: list = []  # list of streets
