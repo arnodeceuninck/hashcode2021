@@ -25,5 +25,6 @@ def append_intersection(file, intersection):
 def append_schedule(file, schedule):
     for street, duration in schedule.items():
         assert isinstance(street, str)
+        assert street != ""
         assert isinstance(duration, int)
         append(file, f"{street} {duration}")
