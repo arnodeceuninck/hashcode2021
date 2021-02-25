@@ -11,17 +11,15 @@ class System:
     def __repr__(self):
         return f"Streets: {self.streets}\n Cars: {self.cars}\n Intersections: {self.intersections}\n " \
                f"Duration: {self.duration}\n Points: {self.points}"
-    
+
 
     def findStreetWithName(self, name):
-        for street in self.streets:
-            if street.name == name:
-                return street
-        raise Exception("Invalid street name")
+        # StopIteration Exception means no street found
+        return next(filter(lambda street: street.name == name, self.streets))
 
     def getIntersectionFromId(self, id):
-        assert self.intersections[id].id == id
-        return self.intersections[id]
+        return next(filter(lambda intersection: intersection.id == id, self.intersections))
+    
 
 class Intersection:
     incoming: list = []  # list of streets
@@ -34,8 +32,6 @@ class Intersection:
 
     def __repr__(self):
         return f"Id: {self.id}"
-
-
 
 
 class Street:
