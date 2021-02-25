@@ -8,10 +8,6 @@ class System:
     duration: int = 0
 
 
-class Car:
-    streets: list = []
-
-
 class Intersection:
     incoming: list = []  # list of streets
     outgoing: list = []
@@ -24,3 +20,9 @@ class Street:
     name: str = ""
     begin: Intersection = 0
     end: Intersection = 0
+
+
+class Car:
+    streets: list = []
+    current_street: Street = 0
+    street_position: int = 0
