@@ -3,7 +3,7 @@ from models import System, Intersection
 
 def generate_output(system: System, filenmae):
     # TODO: assuming you specify a schedule for all intersections
-    file = open(filenmae, "a+")
+    file = open(filenmae, "w")
     append(file, len(system.intersections))
     for intersection in system.intersections:
         append_intersection(file, intersection)
